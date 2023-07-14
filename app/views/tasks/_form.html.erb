@@ -12,13 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
+    <%= form.label t("activerecord.attributes.task.title") %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
-    <%= form.label :content %>
+    <%= form.label t("activerecord.attributes.task.content")%>
     <%= form.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :deadline_on %>
+    <%= form.date_field :deadline_on %>
+  </div>
+
+  <div class="field">
+      <%= form.label :priority %>
+      <%= form.select :priority, options_for_select(['Faible', 'Moyenne', 'Elevee']), include_blank: true %>
+  </div>
+
+  <div class="field">
+      <%= form.label :status %>
+      <%= form.select :status, options_for_select(['Non_démarré', 'Démarré', 'Terminé']), include_blank: true %>
   </div>
 
   <div class="actions">
