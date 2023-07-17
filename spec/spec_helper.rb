@@ -14,13 +14,13 @@
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
-  config.before(:each) do |example|
-    if example.metadata[:type] == :system
-      driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400]  do |options|
-        options.add_argument('no-sandbox')
-      end
-    end
-  end
+  # config.before(:each) do |example|
+  #   if example.metadata[:type] == :system
+  #     driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400]  do |options|
+  #       options.add_argument('no-sandbox')
+  #     end
+  #   end
+  # end
 
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
