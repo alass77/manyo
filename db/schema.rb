@@ -20,9 +20,21 @@ ActiveRecord::Schema.define(version: 2023_07_13_150128) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
     t.integer "priority"
     t.date "deadline_on", null: false
     t.integer "status", null: false
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.boolean "admin", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "tasks", "users"
 end
